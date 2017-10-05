@@ -1,1 +1,1 @@
-The test prediction accuracy and training cost each epoch.   
+Please check my output in doc.  
