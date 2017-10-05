@@ -20,7 +20,7 @@ mnist = input_data.read_data_sets("MNIST", one_hot=True)
 
 # Setting hyperparameters, learning rate, epoch and batch size
 learning_rate = 0.5
-epochs = 10
+epochs = 20
 batch_size = 100
 
 # Setting Input and Output according to our dataset's dimensions
