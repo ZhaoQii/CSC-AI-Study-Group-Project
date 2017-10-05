@@ -1,16 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Dec  3 12:45:12 2016
 
-@author: ap
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Nov 20 23:13:32 2016
-
-@author: QI ZHAO
-"""
 import numpy as np
 from scipy.spatial import distance
 import scipy
@@ -22,13 +10,14 @@ def EuclideanDistances(A):       #calculate the euclidean distance of A's elemen
     
     return np.matrix(dismat)
 
-
+# Define the function to return the specific dimension representation of dataset by Spectral Clustering
+# Sigma is the hyperparameter controling the measurement of similarity
 def getSCpresentation(dataset,dimension,sigma):    #dataset should not involve real labels
     #dimension here should be 10 as we wanted
-    #for sigma I use 300
-    #
+    #for sigma I use 300 after some trials
+    
     dist = EuclideanDistances(dataset)
-    similarity = scipy.exp(-(dist ** 2)  /(2 * sigma ** 2))
+    similarity = scipy.exp(-(dist ** 2)  /(2 * sigma ** 2))  # get the similarity difined by Spectral Clustering
     similarity = similarity-np.diag(np.diag(similarity))
     D = np.diagflat(np.transpose(np.array(similarity.sum(axis=1)) ** -.5))
     L = np.dot(np.dot(D,similarity),D)
